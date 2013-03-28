@@ -1,0 +1,152 @@
+/*
+ * Bodies
+ */
+body {
+    background-color: black;
+    color: #0d0;
+    font-size: 12pt;
+    font-family: "Terminus", "Lucida Console", monospace;
+    margin: 1em;
+}
+
+.navigationframe a {
+    display: block;
+}
+
+a   {
+    color: #0f0;
+}
+a:hover {
+    color: black;
+    background-color: #0d0;
+}
+
+/*
+ * Menus
+ * contextbar - main menu on the top of the page
+ * subcontextbar - sometimes shown menu under contextbar
+ * footer - footnote on each page
+ */
+div {
+    padding: 1em;
+}
+
+.contextbar {
+    background-color: #0d0;
+    margin-left: -1em;
+    margin-right: -1em;
+}
+.contextbar a {
+    color: black;
+    font-weight: bold;
+}
+.contextbar a:hover {
+    background-color: #0c0;
+}
+
+.subcontextbar {
+    background-color: #0c0;
+    margin-left: -1em;
+    margin-right: -1em;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+}
+.subcontextbar a {
+    color: black;
+}
+
+.footer {
+    margin-top: 2em;
+    font-size: 80%;
+    border: 1px solid #060;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+    color: #060;
+}
+
+/*
+ * Headings
+ */
+
+h1 {
+    font-size: 200%;
+}
+h2 {
+    font-size: 160%;
+}
+h3 {
+    font-size: 140%;
+}
+
+/*
+ * Table formatting
+ */
+table {
+    margin-bottom: 1em;
+    min-width: 80%;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+th {
+    background-color: #060;
+    color: black;
+    border-collapse: collapse;
+    border: 1px solid #0d0;
+    padding: 0.2em;
+    padding-left: 0.4em;
+    padding-right: 0.4em;
+}
+
+td {
+    /*background-color: #FFF;*/
+    border-collapse: collapse;
+    border: 1px solid #0d0;
+    padding: 0.2em;
+    padding-left: 0.4em;
+    padding-right: 0.4em;
+}
+
+/*
+ * syntax higlighting
+ */
+
+pre {
+    border: 1px solid #0d0;
+    margin: 1em;
+    padding: 1em;
+    background-color: #010;
+}
+
+.comment {
+    color: #909090;
+    font-style: italic;
+}
+
+.string {
+    color: #990000;
+}
+
+.keyword {
+    color: navy;
+    font-weight: bold;
+}
+
+.reserved {
+    color: #009999;
+    font-weight: bold;
+}
+
+.operator {
+    font-weight: bold;
+    color: orange;
+}
+
+.lineno {
+    font-weight: normal;
+    color: #white;
+    background-color: #808080;
+    font-style: normal;
+}
+

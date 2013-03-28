@@ -1,0 +1,34 @@
+Change Log
+==========
+
+Unreleased
+----------
+
+  Fork of the oraschemadoc project::
+
+    Added writer and formatter packages to begin abstracting how objects are
+    written out.
+
+    Fixed bugs which stopped the original package from working
+
+    Fixed processing of databases with USASCII7 encoding.  If this was the
+    encoding set for a database, the doc gen would fail.
+
+    Add reST output support, so that we can abstract the look/feel and overal
+    doc layout from this package.  The end goal is to generate "generic" docs
+    for that database that can be incorporated into whatever doc process one
+    has.  To start, that focus is on reST and Sphinx.
+
+PreFork Changes
+---------------
+
+<aram_at_kananov_dot_com> at 22-AUG-2003
+      dump dm into xml file (experimental feature)
+      add --no-html to supress html doc generation (modified patch from patch Michael G. Mullis)
+      add --xml-file to dump dm into xml
+      add --dia=filename, so user can specify the file_name (remake of patch from Michael G. Mullis)
+      remove hardcoded path for dia diagram (based on patch from Michael G. Mullis)
+      fix broken parsing of args for dia-table-list
+      patch for missing fk indexes html table header from Michael G. Mullis
+      patch from Michael G. Mullis for "beautifying" source an layout of dia output file
+

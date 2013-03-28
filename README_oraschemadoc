@@ -1,0 +1,150 @@
+This is the license and Copyright and README from the original package::
+
+  oraschemadoc
+
+This covers all works from the original fork of the project.
+
+Copyright (C) Aram Kananov <arcanan@flashmail.com>, 2002
+Copyright (C) Petr Vanek <petr@yarpen.cz>, 2005
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+Exceptation: file oraschemadoc/subprocess24.py is licensed to PSF
+under a Contributor Agreement.
+
+http://www.python.org/download/releases/2.4/license/
+
+
+--------
+CONTENTS
+--------
+0. SOURCE CODE
+1. OVERVIEW
+2. INSTALLATION
+3. USAGE
+
+
+--------------
+0. SOURCE CODE
+--------------
+
+Oraschemadoc is Python application so you propably have source codes alrady.
+If you are using binary executable distribution, you can find sources at
+http://www.yarpen.cz/oraschemadoc/
+
+-----------
+1. OVERVIEW
+-----------
+   Goal of oraschemadoc is "JavaDoc" style detailed documentation for all objects
+in schema covering Oracle specific features. Result of execution of oraschemadoc
+is set of static html files.
+
+--------------
+2. INSTALLATION
+--------------
+
+Requirements:
+a) Python, version 2.0 or later.
+   http://www.python.org
+b) available connection to Oracle Server, version 8.1.6 or later.
+   http://otn.oracle.com
+c) Oracle Server Client (see supported versions by cx_Oracle)
+   http://otn.oracle.com
+d) cx_Oracle - a Python extension module that allows access to Oracle
+   http://www.computronix.com/utilities
+   Warning: you need Oracle client which is cs_Oracle compiled for
+e) Optional GraphViz if you want to have ER diagrams in HTML output.
+   GraphViz is detected automatically.
+   http://www.graphviz.org
+
+Installation
+a) check version of python. type in shell "python -V" to get python version number
+a) install cx_Oracle if neccessary
+b) untar oraschemadoc file into destination directory
+
+Or use precompiled binary distribution. Actually I don't provide any support for
+this distribution. Believe me - Python is better ;)
+
+--------
+3. USAGE
+--------
+a) go to directory where oraschemadoc is installed
+b) to generate documentation run:
+  % ./oracshemadoc.py connect_string output_directory name
+
+or with optional parameters:
+
+oraschemadoc [-v|--verbose] [-d|--dia [--dia-table-list=file]] [--no-html]
+             [--xml-file=filename] [-s|--syntax] [--no--ddl]
+             [--css=style] [--desc=description] oracleuser/password[@dbalias]
+             output_dir  "application name"'
+
+where:
+
+    --verbose        - prints data helpfull for debugging. Use that option if you
+                       encounter problems with oraschemadoc and include output if
+                       you post a bug. Sending me emails is ok, but i would prefer
+                       if u post a bug or support request on oraschemadoc.sourceforge.net
+
+    --no-html        - turn off generation of html files
+
+    -d --dia=fname   - export datamodel to dia uml diagram, fname file will be created under output_dir
+
+    --dia-table-list - path to file which contains table names for export to dia diagram. Useful if you
+                       want to create diagram for some subset of tables. Separate table names with line breaks.
+                       example of file content:
+CLIENTS
+ORDERS
+etc.
+
+    --xml-file=fname - dump DM into xml file. File will be created under output_dir
+
+    -s --syntax      - Enables syntax highlighting of the source code pieces.
+                       Warning: it's very slow.
+
+    --no-ddl         - Disable DDL scripts creation (running DBMS_METADATA calls.
+                       It's enabled by default.
+
+    --css=filename   - File name of the chosen file from css directory.
+                       It'll be used as CSS in produced HTML
+
+    --desc=description - If is description filename with path, the text from file is taken.
+                       If the file doesn't exist the description is taken as text string.
+
+    --pb             - Generates source code for package bodies too.
+
+    --nn             - Index NOT NULL constraints too. It\'s skipped by default:
+                       NOT NULL constraints are reported in columns list only.
+
+    --schema=schemalist
+                     - specify schema/usernames to select from ALL_% obejcts.
+                       If it's not given standard USER_% objects are used.
+                       Schemalist can be e.g. "SCOTT,FOO,BAR" - coma separated list
+                       or empty - it means all granted objects will be documented
+                       Examples:
+                       --schema="" performs selects from current users's ALL_% with
+                                   no owner restrictions
+                       --schema="scott,hr" persorms selects from current user's ALL_%
+                                           with restrictions for scott, hr and current
+                                           user too.
+                       no --schema option - performs selects from USER% objects.
+
+    connect_string   - username/password@dbalias
+
+    output_directory - directory where html files will be placed
+
+    name             - short name which will be shown as title in html files.
+                       for example "My Project Data Model"
+
